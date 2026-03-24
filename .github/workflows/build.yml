@@ -1,0 +1,29 @@
+name: Build Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Show branch name
+        run: echo Building branch %%GITHUB_REF_NAME%%
+
+      - name: Check files
+        run: dir
+
+      - name: Create build report
+        run: echo GitHub Actions build successful > build-report.txt
+
+      - name: Show build report
+        run: type build-report.txt
