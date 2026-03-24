@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                echo 'Checking source code'
+                echo 'Checking source code from git hub'
             }
         }
 
